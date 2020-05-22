@@ -1,0 +1,44 @@
+service: engineerendpoint
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  memorySize: 192
+  timeout: 10
+  stage: production
+  region: eu-central-1
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - dynamodb:*
+      Resource: "*"
+
+functions:
+  readdb:
+    handler: handler.readDB
+    events:
+      - http:
+          path: readeng
+          method: post
+  writedb:
+    handler: handler.writeDB
+    events:
+      - http:
+          path: writeeng
+          method: post
+
+resources:
+  Resources:
+    mainTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: mainTable
+        AttributeDefinitions:
+          - AttributeName: name
+            AttributeType: S
+        KeySchema:
+          - AttributeName: name
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1

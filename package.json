@@ -1,0 +1,8 @@
+{
+  "name": "EngineerEndpoint",
+  "version": "1.0.0",
+  "dependencies": {
+    "aws-sdk": "^2.680.0",
+    "serverless-apigw-binary": "^0.4.4"
+  }
+}
