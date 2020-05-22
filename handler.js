@@ -23,6 +23,7 @@ module.exports.readDB = async event => {
     });
   });
   result = await putItem;
+  console.log(result)
   return {
     statusCode: 200,
     headers: {
@@ -56,6 +57,7 @@ module.exports.writeDB = async event => {
     });
   });
   result = await putItem;
+  console.log(result)git
   return {
     statusCode: 200,
     headers: {
