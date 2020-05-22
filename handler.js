@@ -57,7 +57,7 @@ module.exports.writeDB = async event => {
     });
   });
   result = await putItem;
-  console.log(result)git
+  console.log(result)
   return {
     statusCode: 200,
     headers: {
