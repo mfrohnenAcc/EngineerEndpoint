@@ -20,12 +20,14 @@ functions:
       - http:
           path: readeng
           method: post
+          cors: true
   writedb:
     handler: handler.writeDB
     events:
       - http:
           path: writeeng
           method: post
+          cors: true
 
 resources:
   Resources:
