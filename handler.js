@@ -25,6 +25,10 @@ module.exports.readDB = async event => {
   result = await putItem;
   return {
     statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+    },
     body: result,
   };
 };
@@ -54,6 +58,10 @@ module.exports.writeDB = async event => {
   result = await putItem;
   return {
     statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+    },
     body: result,
   };
 };
